@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: shamilkhan1/node_app
+  repository: node_app_local
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.0.4"
+  tag: "0.0.1"
 
 imagePullSecrets: []
 nameOverride: ""
