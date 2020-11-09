@@ -1,9 +1,12 @@
 module.exports = {
- type: 'postgres',
- url: process.env.DATABASE_URI,
- // use sqlite for local dev
- // type: "sqlite",
- // database: "database.sqlite",
+ ...NODE_ENV === "production" ? {
+  type: 'postgres',
+  url: process.env.DATABASE_URI,
+ } : {
+  // use sqlite for local dev
+  type: "sqlite",
+  database: "database.sqlite",
+ },
  synchronize: true,
  logging: true,
  entities: ["src/entity/**/*.ts"],
