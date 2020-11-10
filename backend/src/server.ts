@@ -13,6 +13,7 @@ const createServer = async () => {
   await createConnection();
   connected = true;
  } catch (e) {
+  console.log(e);
   logValue = `${e}`;
  }
 
@@ -47,7 +48,7 @@ const createServer = async () => {
 
  app.post("/user", async (req, res) => {
   const { name } = req.body;
-  const user = await User.create({ id: Date.now(), name }).save();
+  const user = await User.create({ id: Date.now() % 100000, name }).save();
   res.status(201);
   res.send({ user });
  });
